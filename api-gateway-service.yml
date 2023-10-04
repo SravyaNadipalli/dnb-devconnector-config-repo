@@ -15,7 +15,20 @@ spring:
         - id: AUTH-SERVICE
           uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth/** 
+            - Path=/api/auth/** 
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: PROFILE-SERVICE
+          uri: lb://PROFILE-SERVICE
+          predicates:
+            - Path=/profile/**
+       
+jwt:
+  secret: mySecretKey
+  expireMs: 120000
+  refrEshexpireMs: 120000
 server:
    port: 9191
    error:
